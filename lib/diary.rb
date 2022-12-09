@@ -21,6 +21,9 @@ class Diary
                         # the number of words the user can read per minute
     # Returns an integer representing an estimate of the reading time in minutes
     # if the user were to read all entries in the diary.
+    time = 0
+    @entries.each {|entry| time += entry.reading_time(wpm)}
+    time 
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
@@ -31,5 +34,7 @@ class Diary
     # Returns an instance of diary entry representing the entry that is closest 
     # to, but not over, the length that the user could read in the minutes they
     # have available given their reading speed.
+    wordcount = wpm * minutes
+    
   end
 end
