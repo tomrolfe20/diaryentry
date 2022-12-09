@@ -1,10 +1,11 @@
 class DiaryEntry
     def initialize(title, contents) # title, contents are strings
-      # ...
+      @title = title
+      @contents = contents
     end
   
     def title
-      # Returns the title as a string
+      @title
     end
   
     def contents
@@ -12,7 +13,7 @@ class DiaryEntry
     end
   
     def count_words
-      # Returns the number of words in the contents as an integer
+      @contents.split.length
     end
   
     def reading_time(wpm) # wpm is an integer representing

@@ -1,18 +1,20 @@
 class Diary
   def initialize
+    @entries = []
   end
 
   def add(entry) # entry is an instance of DiaryEntry
-    # Returns nothing
+    @entries << entry
   end
 
   def all
-    # Returns a list of instances of DiaryEntry
+    @entries
   end
 
   def count_words
-    # Returns the number of words in all diary entries
-    # HINT: This method should make use of the `count_words` method on DiaryEntry.
+    wordcount = 0
+    @entries.each {|entry| wordcount += entry.count_words}
+    wordcount 
   end
 
   def reading_time(wpm) # wpm is an integer representing
