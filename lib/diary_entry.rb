@@ -10,6 +10,7 @@ class DiaryEntry
   
     def contents
       # Returns the contents as a string
+      @contents
     end
   
     def count_words

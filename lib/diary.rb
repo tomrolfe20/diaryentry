@@ -1,6 +1,8 @@
 class Diary
+  
   def initialize
     @entries = []
+    @contents = []
   end
 
   def add(entry) # entry is an instance of DiaryEntry
@@ -34,7 +36,10 @@ class Diary
     # Returns an instance of diary entry representing the entry that is closest 
     # to, but not over, the length that the user could read in the minutes they
     # have available given their reading speed.
+    #@entries.sort_by {|x| x.contents.length}
     wordcount = wpm * minutes
-    
+    @entries.each {|entry| entry.count_words <= wordcount ? @contents << entry.contents : nil}
+    @contents.sort_by {|x| x.length}
+    @contents[-1]
   end
 end
